@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>CamDesk Remake</title>
+<title>AirCam</title>
+<description>CamDesk Remake</description>
 <meta name="description" content="Offline-first privacy camera PWA. Remake of CamDesk by Michael Schwartz (MIT).">
 <meta name="theme-color" content="#0ea5e9">
 <meta name="mobile-web-app-capable" content="yes">
@@ -14,7 +15,7 @@
 <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <script>try{var s=JSON.parse(localStorage.cd||'{}'),d=s.scheme||'sys';if(d=='sys')d=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';var r=document.documentElement;r.dataset.scheme=d;r.dataset.accent=s.accent||'sky'}catch(e){}</script>
-<link rel="stylesheet" href="css/app.css">
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 <main id="app">
@@ -65,6 +66,6 @@
 </nav>
 <div id="viewer" hidden><div id="vbox"></div><div class="vbar"><button class="btn" id="vShare"></button><button class="btn ghost" id="vDl"></button><button class="btn ghost" id="vDel"></button><button class="btn ghost" id="vX"></button></div></div>
 <div id="dim"></div><div id="toast"></div>
-<script src="js/config.js"></script><script src="js/i18n.js"></script><script src="js/app.js"></script>
+<script src="assets/js/config.js"></script><script src="assets/js/i18n.js"></script><script src="assets/js/app.js"></script>
 </body>
 </html>
