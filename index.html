@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>CamDesk Remake</title>
+<meta name="description" content="Offline-first privacy camera PWA. Remake of CamDesk by Michael Schwartz (MIT).">
+<meta name="theme-color" content="#0ea5e9">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="CamDesk">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<script>try{var s=JSON.parse(localStorage.cd||'{}'),d=s.scheme||'sys';if(d=='sys')d=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';var r=document.documentElement;r.dataset.scheme=d;r.dataset.accent=s.accent||'sky'}catch(e){}</script>
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<main id="app">
+  <section id="home" class="view on">
+    <div id="stage">
+      <video id="v" playsinline muted autoplay></video>
+      <div id="ov"><p id="ovm"></p><button id="ovb" class="btn"></button></div>
+      <div class="top">
+        <button class="ib" id="bMir" aria-label="mirror" data-ic="mir"></button>
+        <button class="ib" id="bPip" aria-label="pip" data-ic="pip"></button>
+        <button class="ib" id="bFs" aria-label="fullscreen" data-ic="fs"></button>
+        <button class="ib" id="bOpt" aria-label="options" data-ic="opt"></button>
+      </div>
+      <div id="rec" hidden><i class="rd"></i><span id="tm">00:00</span></div>
+    </div>
+    <div id="dock">
+      <div id="modes"><button data-m="photo" class="on" data-i="photo"></button><button data-m="video" data-i="video"></button></div>
+      <div class="row">
+        <button id="last" class="thumb" aria-label="last"></button>
+        <button id="shut" aria-label="shutter"><i></i></button>
+        <button id="sw" class="ib big" aria-label="switch" data-ic="sw"></button>
+      </div>
+    </div>
+    <div id="sheet" hidden>
+      <div class="card">
+        <h3 data-i="res"></h3>
+        <div class="seg" id="resSeg"><button data-r="auto" data-i="auto"></button><button data-r="720">720p</button><button data-r="1080">1080p</button></div>
+        <h3 data-i="device"></h3>
+        <select id="dev"></select>
+        <button class="btn" id="sheetX" data-i="close"></button>
+      </div>
+    </div>
+  </section>
+  <section id="storage" class="view">
+    <header class="nav"><h1 data-i="storage"></h1><button class="link" id="clearAll" data-i="delall"></button></header>
+    <div class="scroll"><div id="grid"></div></div>
+  </section>
+  <section id="settings" class="view">
+    <header class="nav"><h1 data-i="settings"></h1></header>
+    <div class="scroll" id="sroot"></div>
+    <div id="spage"><header class="nav"><button class="link" id="back"></button><h1 id="sttl"></h1></header><div class="scroll" id="sbody"></div></div>
+  </section>
+</main>
+<nav id="tabs">
+  <button data-v="home" class="on"><svg viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg><span data-i="home"></span></button>
+  <button data-v="storage"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><circle cx="9" cy="10" r="1.8"/><path d="M5 18l5-5 3 3 3-3 3 3"/></svg><span data-i="storage"></span></button>
+  <button data-v="settings"><svg viewBox="0 0 24 24"><path d="M5 7h9M18 7h1M5 17h1M10 17h9"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg><span data-i="settings"></span></button>
+</nav>
+<div id="viewer" hidden><div id="vbox"></div><div class="vbar"><button class="btn" id="vShare"></button><button class="btn ghost" id="vDl"></button><button class="btn ghost" id="vDel"></button><button class="btn ghost" id="vX"></button></div></div>
+<div id="dim"></div><div id="toast"></div>
+<script src="js/config.js"></script><script src="js/i18n.js"></script><script src="js/app.js"></script>
+</body>
+</html>
